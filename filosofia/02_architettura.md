@@ -44,15 +44,18 @@ Questa separazione permette di riutilizzare il vocabolario dei Parameters manten
 
 ### Link — La Relazione
 
-I Link esprimono le relazioni tra Unit. Un prodotto appartiene a una categoria, un utente è assegnato a un progetto, un documento ha un autore.
+I Link esprimono le relazioni tra Unit. 
+Un prodotto appartiene a una categoria, un utente è assegnato a un progetto, un documento ha un autore.
 
-La particolarità dei Link in Arke è che sono anch'essi dati: hanno un tipo, possono portare metadati, e sono interrogabili come qualsiasi altra entità. Le relazioni non sono vincoli nascosti nello schema — sono connessioni esplicite e flessibili.
+La particolarità dei Link in Arke è che sono anch'essi dati: hanno un tipo, possono portare metadati, e sono interrogabili come qualsiasi altra entità. 
+Le relazioni non sono vincoli nascosti nello schema, ma connessioni esplicite e flessibili.
 
 ---
 
 ### Group — L'Aggregazione
 
-Un Group raccoglie più Arke sotto un'unica categoria logica. Non cambia la struttura dei singoli Arke, ma permette di trattarli come un insieme coerente.
+Un Group raccoglie più Arke sotto un'unica categoria logica. 
+Non cambia la struttura dei singoli Arke, ma permette di trattarli come un insieme coerente.
 
 Il valore dei Group emerge quando si vuole interrogare entità eterogenee attraverso un'interfaccia comune. Un gruppo "Contenuti" potrebbe raccogliere articoli, video e documenti — diversi per struttura, ma accomunati da un'identità logica.
 
@@ -62,11 +65,12 @@ Il valore dei Group emerge quando si vuole interrogare entità eterogenee attrav
 
 Ogni dato in Arke appartiene a un Project. Il Project è l'unità di isolamento: strutture, istanze, relazioni e configurazioni di un Project non interferiscono mai con un altro.
 
-Un'unica infrastruttura Arke può servire simultaneamente clienti completamente diversi, ciascuno con il proprio modello dati. Il multi-tenancy non è un'aggiunta — è parte del disegno originale.
+Un'unica infrastruttura Arke può servire simultaneamente clienti completamente diversi, ciascuno con il proprio modello dati. 
+Il multi-tenancy non è un'aggiunta: è parte del disegno originale.
 
 ---
 
-## L'Ecosistema
+<!-- ## L'Ecosistema
 
 Arke non è un monolite ma un insieme di moduli indipendenti e componibili. Ogni componente ha una responsabilità precisa e può essere adottato in modo selettivo.
 
@@ -108,21 +112,7 @@ Adatta il core di Arke a PostgreSQL. Traduce le operazioni del meta-modello in q
 
 Un'applicazione web che permette di interagire con il sistema in modo visuale. Dalla Console è possibile definire Arke, gestire Unit, esplorare relazioni, configurare permessi — senza toccare codice o API direttamente.
 
-È lo strumento pensato per chi gestisce il dominio, non per chi costruisce il sistema.
-
----
-
-## Come Si Tengono Insieme
-
-Il flusso è lineare e prevedibile:
-
-1. Si definisce un Arke con i suoi Parameters
-2. Il server espone automaticamente gli endpoint per quel tipo
-3. Si creano Unit conformi alla struttura
-4. Le Unit possono essere collegate tramite Link e aggregate in Group
-5. Tutto avviene nel contesto di un Project isolato
-
-La separazione tra i moduli garantisce che ciascuno possa evolvere indipendentemente. Un cambio nella persistenza non tocca il core. Un nuovo tipo di autenticazione non cambia come si modellano i dati.
+È lo strumento pensato per chi gestisce il dominio, non per chi costruisce il sistema. -->
 
 ---
 

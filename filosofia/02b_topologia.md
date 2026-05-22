@@ -4,13 +4,13 @@
 
 ## Due Modi di Leggere i Dati
 
-In un sistema tradizionale c'è sostanzialmente un solo modo di interrogare i dati: si sceglie un tipo, si filtrano le istanze per attributo, si ottiene una lista. È il modello relazionale classico — potente, familiare, ma fondamentalmente piatto.
+In un sistema tradizionale c'è sostanzialmente un solo modo di interrogare i dati: si sceglie un tipo, si filtrano le istanze per attributo, si ottiene una lista. È il modello relazionale classico: potente, familiare, ma fondamentalmente piatto.
 
 Arke supporta questo modello, ma lo affianca a un secondo approccio: **la traversata del grafo**.
 
 Invece di partire da un tipo e filtrare, si parte da una Unit specifica e si naviga attraverso i suoi Link — seguendo le connessioni verso altre entità, che a loro volta possono portare verso altre ancora. Il dato non è più una riga in una tabella: è un nodo in una rete.
 
-Questi due modi di leggere i dati non si escludono. Si scelgono in base alla domanda che si sta ponendo.
+Questi due modi di leggere i dati non sono mutualmente esclusivi. Si sceglie di volta in volta quello più adeguato alla domanda che si sta ponendo.
 
 > "Tutti gli ordini con stato 'aperto'" è una domanda relazionale.
 > "Tutto ciò che è collegato a questo cliente" è una domanda topologica.
@@ -19,7 +19,9 @@ Questi due modi di leggere i dati non si escludono. Si scelgono in base alla dom
 
 ## Due Tipi di Relazione
 
-In Arke esistono due meccanismi distinti per esprimere che due entità sono connesse. La differenza non è tecnica — è concettuale.
+In Arke esistono due meccanismi distinti per esprimere che due entità sono connesse. 
+La differenza è concettuale, ma anche tecnica. 
+La discriminante è il tipo di relazione che si vuole instaurare fra le Unit: 1:N oppure N:N
 
 ---
 
@@ -29,9 +31,10 @@ Un Arke può avere tra i suoi Parameters uno di tipo *link*: un campo che non co
 
 Questa relazione è **parte della definizione del tipo**. È strutturale, dichiarata nello schema dell'Arke, visibile a chiunque guardi la sua forma.
 
-Pensa a un Arke "Articolo" che ha un parameter "autore" che punta a un Arke "Utente". Ogni articolo porta con sé il riferimento al proprio autore. La relazione è 1:N per costruzione: un articolo ha un autore, non molti.
+Pensa a un Arke "Articolo" che ha un parameter "autore" che punta a un Arke "Utente". Ogni articolo porta con sé il riferimento al proprio autore. 
+La relazione è 1:N per costruzione un articolo ha un autore, non molti. Al contratio, un autore può avere N articoli.
 
-Il parameter di tipo link è il modo giusto per esprimere dipendenze che fanno parte dell'identità di un'entità — relazioni senza le quali l'entità stessa non avrebbe senso completo.
+Il parameter di tipo link è il modo giusto per esprimere dipendenze che fanno parte dell'identità di un'entità, relazioni senza le quali l'entità stessa non avrebbe senso completo.
 
 ---
 
@@ -55,7 +58,8 @@ Il Link autonomo ha alcune caratteristiche distintive:
 
 Ogni Link in Arke è **direzionato**: non connette due entità in modo simmetrico, ma va da una **Unit parent** a una **Unit child**.
 
-Questa direzione non è un dettaglio tecnico — è parte del significato della relazione. "Categoria contiene Prodotto" e "Prodotto appartiene a Categoria" descrivono la stessa connessione letta da angolazioni opposte, ma la direzione del Link stabilisce quale lettura è quella canonica.
+Questa direzione non è un dettaglio tecnico, ma è parte del significato della relazione. 
+"Categoria contiene Prodotto" e "Prodotto appartiene a Categoria" descrivono la stessa connessione letta da angolazioni opposte, ma la direzione del Link stabilisce quale lettura è quella canonica.
 
 In pratica questo significa che ogni Link ha sempre un verso di percorrenza primario, e il sistema permette di navigarlo in entrambe le direzioni:
 
@@ -72,16 +76,22 @@ La direzione è ciò che trasforma un insieme di connessioni in un **grafo orien
 
 Mettendo insieme i due tipi di relazione, emerge una **topologia**: una mappa delle connessioni tra le entità del sistema.
 
-Questa topologia non è una visualizzazione secondaria o un'aggiunta estetica. È una rappresentazione equivalente e complementare al modello relazionale. Le stesse informazioni, viste da un'angolazione diversa.
-
 In topologia, un sistema Arke si presenta come un grafo:
 
-- I **nodi** sono le Unit
-- Gli **archi** sono i Link — sia quelli strutturali (parameter di tipo link) che quelli autonomi — ognuno con la propria direzione
-- Il **tipo** di ogni nodo è il suo Arke di appartenenza
-- I **Group** aggregano famiglie di nodi con identità comune
+- I **nodi** sono le Unit, con un proprio tipo (identificato dall'Arke)
+- Gli **archi** sono I link, sia quelli strutturali (parameter di tipo link) che quelli autonomi, 
+    ognuno con la propria direzione, il proprio tipo e con la possibilità di avere dati aggiuntivi
 
 Navigare questo grafo permette di rispondere a domande che il modello relazionale faticherebbe ad esprimere in modo diretto: catene di dipendenze, reti di collaborazione, gradi di separazione tra entità.
+
+---
+
+## Come interrogare un Grafo
+
+1. Depth
+2. Direction
+3. Vincoli di tipo di connesione
+4. Vincoli di tipo di nodo
 
 ---
 

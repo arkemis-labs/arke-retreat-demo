@@ -12,7 +12,7 @@ Definire strutture dati ed esporre API è il punto di partenza. Arke va oltre: f
 
 Arke integra nativamente la gestione dell'identità attraverso il modulo **arke-auth**.
 
-L'autenticazione non è un componente esterno da collegare: è parte del sistema. Gli utenti sono anch'essi Unit — entità modellate come qualsiasi altro dato, con la differenza che il sistema li riconosce come soggetti delle operazioni, non solo oggetti.
+L'autenticazione non è un componente esterno da collegare: è parte del sistema. Gli utenti sono anch'essi Unit — entità modellate come qualsiasi altro dato -, con la differenza che il sistema li riconosce come soggetti delle operazioni, non solo oggetti.
 
 Il risultato pratico:
 
@@ -24,7 +24,7 @@ Il risultato pratico:
 
 ## Visibilità e Permessi
 
-Il controllo degli accessi in Arke non è un layer separato — è integrato nella struttura stessa del sistema.
+Il controllo degli accessi in Arke non è un layer separato, ma è integrato nella struttura stessa del sistema.
 
 I permessi si articolano su più livelli:
 
@@ -32,7 +32,7 @@ I permessi si articolano su più livelli:
 
 **A livello di Arke**: quali tipi di dato un utente può leggere, creare, modificare o eliminare.
 
-**A livello di Unit**: visibilità granulare sulle singole istanze — un'entità può essere visibile a tutti, solo al suo creatore, o a un gruppo specifico di utenti.
+**A livello di Unit**: visibilità granulare sulle singole istanze: un'entità può essere visibile a tutti, solo al suo creatore, a un gruppo specifico di utenti o condizionata da un parametro.
 
 Questo modello permette di costruire sistemi con logiche di accesso complesse senza scrivere codice di autorizzazione ad hoc. Le regole di visibilità sono configurazione, non implementazione.
 
