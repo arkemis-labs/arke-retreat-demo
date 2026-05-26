@@ -96,7 +96,7 @@ Quattro parametri definiscono una traversata in Arke:
 Una traversata può fermarsi al primo livello di connessioni, o proseguire ricorsivamente fino a una profondità arbitraria. Controllare la depth significa controllare quanto del grafo si vuole vedere: il vicinato immediato di una Unit, oppure l'intera rete raggiungibile da essa.
 
 **Direction** — in quale verso percorrere i Link.
-Ogni Link è orientato: ha un parent e un child. La traversata può seguire il verso naturale (dal parent verso i child), risalirlo (dal child verso i parent), o percorrerlo in entrambe le direzioni. La direzione scelta determina il significato della domanda: "cosa dipende da questa Unit?" e "da cosa dipende questa Unit?" sono domande opposte sullo stesso grafo.
+L'interrogazione del grafo presuppone però che la direzione sia univoca all'interno della query: se percorro più nodi con la stessa query, potrò andare monodirezionalmente, seguendo il verso naturale (dal parent verso i child) o risalire il grafo (dal child verso il parent)
 
 **Vincoli di tipo di connessione** — quali Link seguire.
 Non tutti i Link hanno lo stesso significato. Si può limitare la traversata a specifici tipi di connessione, escludendo quelli irrilevanti per la domanda in corso. Questo permette di attraversare solo il sottoinsieme di relazioni che interessa, ignorando il resto della topologia.

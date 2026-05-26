@@ -6,7 +6,7 @@
 
 Uno dei principi architetturali di Arke è che il core del sistema non sa — e non deve sapere — come i dati vengono fisicamente salvati.
 
-La logica di dominio (cosa sono gli Arke, come si relazionano le Unit, come funzionano i cicli di vita) è completamente separata dal meccanismo di persistenza. Questo non è un dettaglio implementativo: è una scelta filosofica.
+La logica di dominio (cosa sono gli Arke, come si relazionano le Unit, come funzionano i cicli di vita) è completamente separata dal meccanismo di persistenza. Questo non è un dettaglio implementativo, ma è una scelta filosofica.
 
 **Il dato ha un'identità indipendente dal posto in cui risiede.**
 
@@ -34,9 +34,11 @@ Non tutti i dati hanno lo stesso profilo di accesso. Alcuni vengono letti rarame
 
 La struttura degli Arke stessi — i tipi, i Parameters, le definizioni — è tra i dati più acceduti del sistema: ogni operazione sulle Unit deve verificare la conformità con il proprio tipo. Leggere queste informazioni da database ad ogni richiesta sarebbe un collo di bottiglia inutile.
 
-Arke risolve questo attraverso **ETS** (Erlang Term Storage): una struttura di memoria condivisa, velocissima, disponibile nativamente nella piattaforma su cui Arke è costruito.
+Arke risolve questo attraverso **ETS** (Erlang Term Storage): una struttura di memoria condivisa, immediata, disponibile nativamente nella piattaforma su cui Arke è costruito.
 
-Le definizioni degli Arke, i Parameters, le configurazioni di sistema vivono in ETS. Sono "vicine" all'applicazione — in memoria, sullo stesso nodo, senza latenza di rete. Il database rimane la fonte di verità, ma non è il punto di accesso per ogni singola lettura.
+Le definizioni degli Arke, i Parameters, le configurazioni di sistema vivono in ETS. Sono "vicine" all'applicazione: in memoria, sullo stesso nodo, senza latenza di rete. 
+Il database rimane la fonte di verità, ma non è il punto di accesso per ogni singola lettura.
+I dati vengono caricati all'avvio dell'applicazione. Possono essere modicati; quando questo succede, la modifica avviene a DB prima di essere propagata sull'ETS di ogni nodo.
 
 Il risultato è un sistema che scala senza sacrificare la coerenza: i dati caldi sono sempre disponibili, i dati freddi vivono dove devono.
 
@@ -66,7 +68,7 @@ I tre livelli di persistenza si compongono in modo coerente:
 
 | Livello | Tecnologia | Cosa contiene | Caratteristica |
 |---|---|---|---|
-| Memoria di lavoro | ETS | Struttura degli Arke, configurazioni | Velocissima, locale al nodo |
+| Memoria di lavoro | ETS | Struttura degli Arke, configurazioni | Molto veloce, locale al nodo |
 | Persistenza primaria | PostgreSQL (via connettore) | Tutti i dati applicativi | Fonte di verità, duratura |
 | Coordinamento cluster | libcluster | Sincronizzazione tra nodi | Trasparente, automatica |
 

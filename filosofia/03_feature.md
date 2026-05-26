@@ -40,16 +40,9 @@ Questo modello permette di costruire sistemi con logiche di accesso complesse se
 
 ## Hook sul Ciclo di Vita
 
-Ogni Arke può reagire agli eventi del proprio ciclo di vita. Arke definisce quattro momenti intercettabili:
-
-- **Prima della creazione**: validazioni aggiuntive, trasformazioni dei dati in ingresso, arricchimento da sorgenti esterne
-- **Dopo la creazione**: notifiche, propagazioni, effetti collaterali
-- **Prima dell'aggiornamento**: controlli di coerenza, blocco di modifiche non consentite
-- **Prima dell'eliminazione**: pulizia di relazioni, archiviazione, vincoli di integrità custom
-
-Gli hook non sostituiscono la validazione strutturale — quella è garantita dalla definizione del tipo. Gli hook gestiscono la *logica di dominio* che va oltre la struttura: le regole di business specifiche di ogni contesto.
-
-Il vantaggio è che questa logica rimane localizzata nell'Arke che la riguarda. Non si disperde in middleware generici o listener globali.
+Arke fornisce degli Hook, punti in cui lo sviluppatore può inserirsi per automatizzare delle operazioni durante il ciclo di vita della Unit.
+Tutte le volte che viene creata, modificata, eliminata o interrogata una Unit lo sviluppatore può ovveridare dei comportanti tramite dei trigger. Questo comporta che tutte le operazioni verranno fatte in qualsiasi momento di modifica di quella Unit, il ché può comportare eventuali compromissioni dell'operatività. 
+Usare con attenzione.
 
 ---
 
@@ -57,8 +50,7 @@ Il vantaggio è che questa logica rimane localizzata nell'Arke che la riguarda. 
 
 Oltre agli hook, Arke permette di definire **funzioni custom** accessibili come endpoint dedicati su un Arke specifico.
 
-Dove gli hook reagiscono a eventi standard (crea, aggiorna, elimina), le funzioni custom introducono operazioni nuove: un Arke "Ordine" potrebbe esporre una funzione "conferma", un Arke "Documento" potrebbe esporre "pubblica" o "archivia".
-
+Dove gli hook reagiscono a eventi standard (crea, aggiorna, elimina), le funzioni custom introducono operazioni nuove.
 Queste funzioni:
 
 - Sono associate all'Arke che le definisce, non al sistema in generale
@@ -66,16 +58,6 @@ Queste funzioni:
 - Possono orchestrare operazioni complesse su più entità mantenendo la coerenza transazionale
 
 Il risultato è un sistema che supporta non solo il CRUD generico, ma il vocabolario specifico di ogni dominio.
-
----
-
-## Composizione delle Feature
-
-Queste capacità non sono silos separati — si compongono:
-
-Un hook di creazione può verificare i permessi dell'utente corrente prima di procedere. Una funzione custom può essere protetta da un livello di visibilità specifico. Un cambio di stato orchestrato da una funzione può generare notifiche gestite da un hook.
-
-La coerenza del modello garantisce che queste composizioni siano prevedibili e controllabili.
 
 ---
 
