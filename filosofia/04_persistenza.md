@@ -74,13 +74,9 @@ Ogni livello fa una cosa sola e la fa bene. La complessità della loro interazio
 
 ---
 
-## Perché Conta
+## Non devi pensarci
 
-Un sistema di gestione dati che non scala non è un sistema — è un prototipo.
-
-Le scelte architetturali sulla persistenza in Arke non sono ottimizzazioni postume: sono parte del disegno. La separazione tra core e connettore, la memoria veloce per i dati frequenti, il supporto nativo alla distribuzione — tutto converge verso lo stesso obiettivo.
-
-> Un sistema che si adatta al carico come il meta-modello si adatta al dominio.
+Arke si occupa di salvare i dati, tenerli veloci e sincronizzarli tra i nodi. Tu lavori con i tuoi dati, lui si preoccupa del resto, this is the deal.
 
 ---
 
