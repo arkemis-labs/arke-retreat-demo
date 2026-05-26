@@ -86,12 +86,25 @@ Navigare questo grafo permette di rispondere a domande che il modello relazional
 
 ---
 
-## Come interrogare un Grafo
+## Come Interrogare un Grafo
 
-1. Depth
-2. Direction
-3. Vincoli di tipo di connesione
-4. Vincoli di tipo di nodo
+Navigare un grafo non è come filtrare una tabella. Non si cerca "tutti gli elementi con questo attributo" — si percorre una rete, scegliendo quanto lontano andare, in quale direzione, e attraverso quali connessioni.
+
+Quattro parametri definiscono una traversata in Arke:
+
+**Depth** — quanto in profondità scendere nel grafo.
+Una traversata può fermarsi al primo livello di connessioni, o proseguire ricorsivamente fino a una profondità arbitraria. Controllare la depth significa controllare quanto del grafo si vuole vedere: il vicinato immediato di una Unit, oppure l'intera rete raggiungibile da essa.
+
+**Direction** — in quale verso percorrere i Link.
+Ogni Link è orientato: ha un parent e un child. La traversata può seguire il verso naturale (dal parent verso i child), risalirlo (dal child verso i parent), o percorrerlo in entrambe le direzioni. La direzione scelta determina il significato della domanda: "cosa dipende da questa Unit?" e "da cosa dipende questa Unit?" sono domande opposte sullo stesso grafo.
+
+**Vincoli di tipo di connessione** — quali Link seguire.
+Non tutti i Link hanno lo stesso significato. Si può limitare la traversata a specifici tipi di connessione, escludendo quelli irrilevanti per la domanda in corso. Questo permette di attraversare solo il sottoinsieme di relazioni che interessa, ignorando il resto della topologia.
+
+**Vincoli di tipo di nodo** — quali Unit considerare.
+Analogamente, si possono filtrare i nodi visitati per tipo di Arke. La traversata tocca solo le Unit di un certo tipo, restituendo un sottoinsieme significativo del grafo invece del grafo completo.
+
+Combinando questi quattro parametri si può esprimere qualunque domanda topologica: dal vicinato immediato di un nodo, alla rete completa di dipendenze di un sistema, fino a percorsi specifici tra entità di tipi determinati.
 
 ---
 
