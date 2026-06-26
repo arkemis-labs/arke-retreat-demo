@@ -192,8 +192,7 @@ su database è semplicemente questa riga:
 ### Traversata del grafo
 
 La lettura topologica — partire da una Unit e seguirne i Link per `depth`, `direction`
-(`:child` / `:parent`) e `type` — si fa con `Arke.QueryManager.link/3`. Sono i quattro assi della
-traversata descritti nella sezione *Topologia*.
+(`:child` / `:parent`) e `type` — si fa con `Arke.QueryManager.link/3`.
 
 → Vedi [Query Manager → `link`](./02_query_manager.md#le-funzioni).
 

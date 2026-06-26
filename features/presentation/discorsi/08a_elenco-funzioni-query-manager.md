@@ -1,0 +1,1 @@
+mostrare solo l'elenco, non diciamo quasi nulla

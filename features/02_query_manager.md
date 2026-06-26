@@ -106,7 +106,7 @@ QueryManager.link(q, u, depth: 2, direction: :child, type: "ordine")
 ```
 
 Opzioni: `direction` (`:child` default / `:parent`), `depth` (default 500), `type` (limita ai
-Link di quel tipo). Sono i quattro assi della traversata descritti in *Topologia*.
+Link di quel tipo).
 
 **`order/3` · `offset/2` · `limit/2`** (+ `pagination/3`):
 
