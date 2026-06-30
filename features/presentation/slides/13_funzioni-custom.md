@@ -7,7 +7,6 @@ Gli hook **reagiscono**; le funzioni custom **aggiungono** operazioni nuove.
 - Funzione pubblica nel modulo dell'Arke → endpoint automatico:
   `POST /:arke_id/function/:nome` (o sulla singola Unit)
 - Ricevi `params`, `body`, `member` (iniettati)
-- Ritorni un **dato**, non una `conn` → il controller costruisce la risposta
 
 ```elixir
 def conferma(_arke, unit) do

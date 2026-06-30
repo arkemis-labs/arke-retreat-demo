@@ -2,12 +2,12 @@
 
 # QueryManager — le funzioni
 
-| categoria | funzioni |
-|---|---|
-| lettura rapida | `get_by` · `filter_by` |
-| scrittura | `create` · `update` · `delete` |
+| categoria      | funzioni                                                     |
+| -------------- | ------------------------------------------------------------ |
+| lettura rapida | `get_by` · `filter_by`                                       |
+| scrittura      | `create` · `update` · `delete`                               |
 | query building | `query` · `where` · `filter` · `and_` / `or_` / `conditions` |
-| esecutori | `all` · `one` · `count` · `raw` |
-| grafo | `link` |
-| paginazione | `order` · `offset` · `limit` · `pagination` |
-| interop Ecto | `pseudo_query` |
+| esecutori      | `all` · `one` · `count` · `raw`                              |
+| grafo          | `link`                                                       |
+| paginazione    | `order` · `offset` · `limit` · `pagination`                  |
+| interop Ecto   | `pseudo_query`                                               |

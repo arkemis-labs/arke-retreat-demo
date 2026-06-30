@@ -11,4 +11,4 @@ Punto d'accesso unico per leggere e scrivere Unit.
 
 **Componibile** — ogni funzione torna una query; niente tocca il DB fino all'esecutore.
 
-> `create` / `update`: validazione + hook + link strutturali, in una sola chiamata.
+> `create` / `update`: validazione + hook, in una sola chiamata.

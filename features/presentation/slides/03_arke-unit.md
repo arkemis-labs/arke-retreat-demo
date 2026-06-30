@@ -5,10 +5,10 @@
 **Tipo e istanza vivono nella stessa tabella.**
 Li distingue una sola colonna: `arke_id`.
 
-| id | arke_id | data |
-|---|---|---|
-| `frutto` | `arke` | `{label: "Frutto", …}` |
-| `mela` | `frutto` | `{nome: "Mela", peso: 150}` |
+| id       | arke_id  | data                        |
+| -------- | -------- | --------------------------- |
+| `frutto` | `arke`   | `{label: "Frutto", …}`      |
+| `mela`   | `frutto` | `{nome: "Mela", peso: 150}` |
 
 - `frutto` è la **definizione del tipo** → `arke_id = arke`
 - `mela` è l'**istanza** → `arke_id = frutto`

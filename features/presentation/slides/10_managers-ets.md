@@ -2,7 +2,7 @@
 
 # Managers & ETS
 
-**Registri in memoria (ETS)** — i dati più letti, senza colpire il DB ogni volta:
+**Registri in memoria (ETS)** — i dati più letti, senza chiamare il DB ogni volta:
 `ArkeManager` · `ParameterManager` · `GroupManager`
 
 **Manager operativi:**

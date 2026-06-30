@@ -1,8 +1,8 @@
 <!-- discorso: ../discorsi/12_hook.md · ritmo: veloce -->
 
-# Hook del ciclo di vita
+# Lifecycle Hook
 
-Callback sul ciclo di vita di un Arke — una per ogni momento:
+Callback sul lifecycle di un Arke — una per ogni momento:
 validate · create · update · delete.
 
 **Sequenza (create):**

@@ -12,7 +12,7 @@ DELETE /:arke_id/unit/:unit_id   → elimina
 ```
 
 Definisci `frutto` → `POST /frutto/unit` **funziona già.**
-Idem `ordine`, e qualunque tipo inventerai domani.
+Idem `ordine`, e qualunque arke inventerai domani.
 
 ---
 
